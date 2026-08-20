@@ -2,10 +2,6 @@
 
 把「PR review comment → 修改 → 自查 → push」的循环交给一组分工明确的 agent,人只在风险闸门处审批。
 
-> 本项目是「使用 AI 工具自主搭建一套系统」的实践:全程使用 Claude Code 构建,
-> 过程记录见 [docs/pitfalls.md](docs/pitfalls.md),设计思路见 [docs/design.md](docs/design.md),
-> 实践后的思考见 [docs/reflections.md](docs/reflections.md)。
-
 ## 它解决什么问题
 
 AI 辅助开发普及后,开发者的日常变成:把 review comment 转发给 AI → 看一眼修改 → push → 等下一轮。
@@ -54,7 +50,6 @@ uv run reviewloop reject  pr12-c3456789   # 驳回 → 丢弃变更并回复说�
 ```
 docs/design.md       设计:状态机、角色、选型理由、范围决策
 docs/pitfalls.md     构建过程踩坑实录(按时间序,不事后美化)
-docs/reflections.md  实践后对 multi-agent 这项技术的思考判断
 rulebook/rules.md    Reviewer agent 每轮加载的评审规则(人类意见的沉淀)
 src/reviewloop/      ~600 行 Python:graph(编排)/ agents(LLM 角色)/
                      github(唯一写路径)/ risk(确定性风险分类)/ cli
@@ -64,4 +59,3 @@ src/reviewloop/      ~600 行 Python:graph(编排)/ agents(LLM 角色)/
 
 - [x] 状态机 + 双 agent 循环 + 风险闸门 + CLI 审批
 - [ ] demo 仓库实录(GIF)
-- [ ] reflections 成文
