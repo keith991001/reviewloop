@@ -1,0 +1,26 @@
+[project]
+name = "reviewloop"
+version = "0.1.0"
+description = "Multi-agent system that turns PR review comments into verified, risk-gated code changes"
+readme = "README.md"
+authors = [
+    { name = "Keith YU", email = "keith991001@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "claude-agent-sdk>=0.2.139",
+    "langgraph>=1.2.11",
+    "langgraph-checkpoint-sqlite>=3.1.1",
+]
+
+[project.scripts]
+reviewloop = "reviewloop.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.15,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
